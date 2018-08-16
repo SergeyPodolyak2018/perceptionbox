@@ -35,6 +35,7 @@ const styles = {
     color: '#ffffff', 
     fontSize: '16px',
     fontWeight: '700',
+    borderRadius:'25px',
   },
   fogot:{
     color: '#b5b5b5',
@@ -49,7 +50,16 @@ const styles = {
 
 
 class Form extends Component {
+  constructor (props) {
+      super(props);
+      this.state = {
+        email: '',
+        password: ''
+      }
+    }
+  
  render () {
+  
    return (
      <form style={styles.mainForm}>
      <label htmlFor='name' style={styles.lable}>Username</label>
