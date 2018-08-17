@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Form from './Form.js';
 
@@ -48,13 +47,21 @@ const styles = {
     flexDirection:'column', 
     borderRadius:'5px',
     transition: '0.2s',
-    boxShadow: '', 
+    boxShadow: '',
+    marginBottom:'30px', 
   },
   hover:{
     boxShadow: '0 10px 10px rgba(0,0,0,0.5)',
   },
   normal:{
     boxShadow: '',
+  },
+  powered:{
+    color: '#b5b5b5',
+  },
+  cygate:{
+    color: '#b5b5b5',    
+    textDecoration: 'underline',
   },
   
 };
@@ -72,21 +79,19 @@ class App extends Component {
         this.setState({
             hover: true
         });
-        console.log('enter');
+        
     }
     onMouseLeaveHandler=()=>{
         this.setState({
             hover: false
         });
-        console.log('leave');
+        
     }
   render() {
     let inner = styles.normal;
     if(this.state.hover) {
-        inner = styles.hover;
-        console.log(inner);
-    }
-    console.log(styles.card);
+        inner = styles.hover;        
+    }    
     return (
       <div className="App" style={styles.app}>
         <div style={styles.logotip}>
@@ -101,6 +106,7 @@ class App extends Component {
           onMouseLeave={this.onMouseLeaveHandler}>
           <Form />
         </div>
+        <p style={styles.powered}>Powered by <a href='#' style={styles.cygate}>Cygate</a></p>
       </div>
     );
   }
